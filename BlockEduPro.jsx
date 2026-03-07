@@ -2,9 +2,12 @@ const { useState, useEffect, useRef, useCallback, useMemo } = React;
 
 
 // ═══════════════════════════════════════════════════════════════════
-// CONFIG — point to your Node.js gateway
+// CONFIG — auto-detect backend URL
+// - Local dev  → http://localhost:3001
+// - Production → same origin as the page (Render, Railway, etc.)
 // ═══════════════════════════════════════════════════════════════════
-const API = "http://localhost:3001";
+const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+const API = isLocal ? "http://localhost:3001" : window.location.origin;
 
 // ═══════════════════════════════════════════════════════════════════
 // SHA-256 (browser fallback when backend unreachable)
