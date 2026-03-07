@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef, useCallback, useMemo } from "react";
+const { useState, useEffect, useRef, useCallback, useMemo } = React;
+
 
 // ═══════════════════════════════════════════════════════════════════
 // CONFIG — point to your Node.js gateway
@@ -1164,7 +1165,7 @@ const CONCEPTS = [
   ["⬡", "SPV Proof"],
 ];
 
-export default function App() {
+function App() {
   const [view, setView] = useState("tutorial");
   const [difficulty, setDifficulty] = useState(3);
   const [backendOk, setBackendOk] = useState(false);

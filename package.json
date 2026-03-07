@@ -1,0 +1,13 @@
+{
+  "name": "blockedupro",
+  "version": "1.0.0",
+  "description": "BlockEdu Pro - Full-Stack Blockchain Visualizer",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["blockchain", "education"],
+  "author": "",
+  "license": "MIT"
+}

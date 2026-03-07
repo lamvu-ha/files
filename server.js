@@ -12,6 +12,7 @@
 const http = require('http');
 const crypto = require('crypto');
 const url = require('url');
+const fs = require('fs');
 
 const PORT = process.env.PORT || 3001;
 
@@ -206,6 +207,29 @@ const server = http.createServer(async (req, res) => {
   const path = parsed.pathname;
 
   try {
+    // ── Serve static files ─────────────────────────────────────
+    if (req.method === 'GET' && (path === '/' || path === '/index.html')) {
+      const filePath = __dirname + '/index.html';
+      if (fs.existsSync(filePath)) {
+        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+        res.end(fs.readFileSync(filePath, 'utf-8'));
+      } else {
+        json(res, { error: 'index.html not found' }, 404);
+      }
+      return;
+    }
+
+    if (req.method === 'GET' && path === '/BlockEduPro.jsx') {
+      const filePath = __dirname + '/BlockEduPro.jsx';
+      if (fs.existsSync(filePath)) {
+        res.writeHead(200, { 'Content-Type': 'application/javascript; charset=utf-8' });
+        res.end(fs.readFileSync(filePath, 'utf-8'));
+      } else {
+        json(res, { error: 'BlockEduPro.jsx not found' }, 404);
+      }
+      return;
+    }
+
     // ── GET /api/chain ────────────────────────────────────────
     if (path === '/api/chain' && req.method === 'GET') {
       json(res, blockchain.toJSON());
