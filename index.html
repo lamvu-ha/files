@@ -1,28 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-<meta charset="UTF-8">
-<title>BlockEduPro — Blockchain Visualizer</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CryptoHash Demo — SHA-256 Visualizer | SVNCKH</title>
+  <meta name="description" content="Demonstrate SHA-256 cryptographic hash functions interactively. Fixed-length output, avalanche effect, one-way property. Created for SVNCKH student research competition." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-<style>
-body{margin:0}
-</style>
-
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; width: 100%; overflow-x: hidden; }
+    body {
+      background: #030712;
+      color: #e2e8f0;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    #root { min-height: 100vh; }
+  </style>
 </head>
 <body>
+  <div id="root"></div>
 
-<div id="root"></div>
+  <script type="text/babel" src="/BlockEduPro.jsx"></script>
 
-<!-- Load toàn bộ BlockEduPro component qua Babel standalone -->
-<script type="text/babel" src="/BlockEduPro.jsx"></script>
-
-<script type="text/babel">
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
-</script>
-
+  <script type="text/babel">
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
 </body>
 </html>
